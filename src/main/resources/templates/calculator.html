@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Web 科学计算器</title>
+    <link rel="stylesheet" href="/css/calculator.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 Java Web 科学计算器</h1>
+        
+        <div class="calculator">
+            <div class="display-section">
+                <input type="text" id="display" readonly placeholder="0">
+                <div id="operation-display"></div>
+            </div>
+            
+            <div class="button-grid">
+                <!-- 第一行：清除和删除 -->
+                <button onclick="clearAll()" class="btn btn-clear">C</button>
+                <button onclick="deleteLast()" class="btn btn-clear">⌫</button>
+                <button onclick="setOperation('sqrt')" class="btn btn-operation">√</button>
+                <button onclick="setOperation('power')" class="btn btn-operation">x^y</button>
+                
+                <!-- 第二行：三角函数 -->
+                <button onclick="setOperation('sin')" class="btn btn-function">sin</button>
+                <button onclick="setOperation('cos')" class="btn btn-function">cos</button>
+                <button onclick="setOperation('tan')" class="btn btn-function">tan</button>
+                <button onclick="setOperation('divide')" class="btn btn-operation">÷</button>
+                
+                <!-- 第三行：数字7-9和乘法 -->
+                <button onclick="appendNumber('7')" class="btn btn-number">7</button>
+                <button onclick="appendNumber('8')" class="btn btn-number">8</button>
+                <button onclick="appendNumber('9')" class="btn btn-number">9</button>
+                <button onclick="setOperation('multiply')" class="btn btn-operation">×</button>
+                
+                <!-- 第四行：数字4-6和减法 -->
+                <button onclick="appendNumber('4')" class="btn btn-number">4</button>
+                <button onclick="appendNumber('5')" class="btn btn-number">5</button>
+                <button onclick="appendNumber('6')" class="btn btn-number">6</button>
+                <button onclick="setOperation('subtract')" class="btn btn-operation">-</button>
+                
+                <!-- 第五行：数字1-3和加法 -->
+                <button onclick="appendNumber('1')" class="btn btn-number">1</button>
+                <button onclick="appendNumber('2')" class="btn btn-number">2</button>
+                <button onclick="appendNumber('3')" class="btn btn-number">3</button>
+                <button onclick="setOperation('add')" class="btn btn-operation">+</button>
+                
+                <!-- 第六行：0、小数点和等号 -->
+                <button onclick="appendNumber('0')" class="btn btn-number btn-zero">0</button>
+                <button onclick="appendNumber('.')" class="btn btn-number">.</button>
+                <button onclick="calculate()" class="btn btn-equals">=</button>
+            </div>
+            
+            <div id="result-history">
+                <h3>计算历史</h3>
+                <div id="history-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/calculator.js"></script>
+</body>
+</html>
